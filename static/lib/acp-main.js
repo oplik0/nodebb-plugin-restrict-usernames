@@ -13,6 +13,6 @@ $(document).ready(function () {
 		$(window).on('action:ajaxify.end', function(data) { ... });			"data" contains "url"
 	*/
 
-	console.log('nodebb-plugin-quickstart: acp-loaded');
+	console.log('nodebb-plugin-restric-usernames: acp-loaded');
 	// Note how this is shown in the console on the first load of every page in the ACP
 });

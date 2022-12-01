@@ -1,17 +1,30 @@
 {
-	"id": "nodebb-plugin-quickstart",
-	"url": "https://github.com/NodeBB/nodebb-plugin-quickstart",
+	"id": "nodebb-plugin-restric-usernames",
+	"url": "https://github.com/NodeBB/nodebb-plugin-restric-usernames",
 	"library": "./library.js",
 	"hooks": [
-		{ "hook": "static:app.load", "method": "init" },
-		{ "hook": "static:api.routes", "method": "addRoutes" },
-		{ "hook": "filter:admin.header.build", "method": "addAdminNavigation" }
+		{
+			"hook": "static:app.load",
+			"method": "init"
+		},
+		{
+			"hook": "static:api.routes",
+			"method": "addRoutes"
+		},
+		{
+			"hook": "filter:admin.header.build",
+			"method": "addAdminNavigation"
+		},
+		{
+			"hook": "filter:register.check",
+			"method": "checkRegistration"
+		}
 	],
 	"staticDirs": {
 		"static": "./static"
 	},
 	"scss": [
-		"static/scss/quickstart.scss"
+		"static/scss/restric-usernames.scss"
 	],
 	"scripts": [
 		"static/lib/main.js"
@@ -20,8 +33,8 @@
 		"static/lib/acp-main.js"
 	],
 	"modules": {
-		"../client/quickstart.js": "./static/lib/quickstart.js",
-		"../admin/plugins/quickstart.js": "./static/lib/admin.js"
+		"../client/restric-usernames.js": "./static/lib/restric-usernames.js",
+		"../admin/plugins/restric-usernames.js": "./static/lib/admin.js"
 	},
 	"templates": "static/templates"
 }

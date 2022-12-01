@@ -1,16 +1,16 @@
 {
-  "name": "nodebb-plugin-quickstart",
+  "name": "nodebb-plugin-restric-usernames",
   "version": "0.4.3",
   "description": "A starter kit for quickly creating NodeBB plugins",
   "main": "library.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nodebb/nodebb-plugin-quickstart"
+    "url": "https://github.com/oplik0/nodebb-plugin-restric-usernames"
   },
   "keywords": [
     "nodebb",
     "plugin",
-    "quickstart",
+    "restric-usernames",
     "shell"
   ],
   "husky": {
@@ -27,7 +27,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nodebb/nodebb-plugin-quickstart/issues"
+    "url": "https://github.com/oplik0/nodebb-plugin-restric-usernames/issues"
   },
   "readmeFilename": "README.md",
   "nbbpm": {
