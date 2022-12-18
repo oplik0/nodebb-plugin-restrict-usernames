@@ -5,19 +5,22 @@ const meta = require.main.require('./src/meta');
 const routeHelpers = require.main.require('./src/routes/helpers');
 
 const plugin = {};
+plugin.id = 'restrict-usernames';
 plugin.settings = {};
 plugin.init = async (params) => {
 	const { router /* , middleware , controllers */ } = params;
 
 	// Settings saved in the plugin settings can be retrieved via settings methods
-	plugin.settings = await meta.settings.get('restrict-usernames');
+	plugin.settings = await meta.settings.get(plugin.id);
 	if (!plugin.settings.init) {
 		plugin.settings.init = true;
-		plugin.settings.enabled = [];
-		await meta.settings.set('restrict-usernames', plugin.settings);
+		for (const filter of Object.keys(plugin.userFilters)) {
+			plugin.settings[`${filter}-enabled`] = false;
+		}
+		await meta.settings.set(plugin.id, plugin.settings, true);
 	}
 	routeHelpers.setupAdminPageRoute(router, '/admin/plugins/restrict-usernames', [], (req, res) => {
-		res.render('admin/plugins/restrict-usernames', { userFilters: plugin.userFilters });
+		res.render('admin/plugins/restrict-usernames', { rules: plugin.userFilters });
 	});
 };
 
@@ -55,11 +58,18 @@ plugin.userFilters = {
 	},
 };
 
+plugin.saveSettings = async (data) => {
+	if (data.plugin === plugin.id && !data.quiet && plugin.settings.init) {
+		plugin.settings = await meta.settings.get(plugin.id);
+	}
+	return data;
+};
+
 
 plugin.checkRegistration = async (hookData) => {
 	Promise.all(
 		Object.entries(plugin.userFilters)
-			.filter(filter => plugin.settings.enabled.includes(filter[0]))
+			.filter(filter => [true, 'on', 'enabled', 'true'].includes(plugin.settings[`${filter[0]}-enabled`]))
 			.map(filter => filter[1].function(hookData.data.username))
 	);
 	return hookData;

@@ -20,9 +20,13 @@
 			"method": "checkRegistration"
 		}
 	],
+	"settingsRoute": "/admin/plugins/restrict-usernames",
 	"staticDirs": {
 		"static": "./static"
 	},
+	"less": [
+		"static/less/restrict-usernames.less"
+	],
 	"scripts": [
 		"static/lib/main.js"
 	],
