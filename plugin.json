@@ -18,6 +18,14 @@
 		{
 			"hook": "filter:register.check",
 			"method": "checkRegistration"
+		},
+		{
+			"hook": "filter:username.check",
+			"method": "checkRegistration"
+		},
+		{
+			"hook": "action:settings.set",
+			"method": "saveSettings"
 		}
 	],
 	"settingsRoute": "/admin/plugins/restrict-usernames",

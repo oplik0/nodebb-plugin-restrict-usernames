@@ -70,7 +70,7 @@ plugin.checkRegistration = async (hookData) => {
 	Promise.all(
 		Object.entries(plugin.userFilters)
 			.filter(filter => [true, 'on', 'enabled', 'true'].includes(plugin.settings[`${filter[0]}-enabled`]))
-			.map(filter => filter[1].function(hookData.data.username))
+			.map(filter => filter[1].function(hookData.userData ? hookData.userData.username : hookData.username))
 	);
 	return hookData;
 };
