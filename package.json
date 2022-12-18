@@ -1,16 +1,16 @@
 {
-  "name": "nodebb-plugin-restric-usernames",
+  "name": "nodebb-plugin-restrict-usernames",
   "version": "0.4.3",
   "description": "A starter kit for quickly creating NodeBB plugins",
   "main": "library.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/oplik0/nodebb-plugin-restric-usernames"
+    "url": "https://github.com/oplik0/nodebb-plugin-restrict-usernames"
   },
   "keywords": [
     "nodebb",
     "plugin",
-    "restric-usernames",
+    "restrict-usernames",
     "shell"
   ],
   "husky": {
@@ -27,7 +27,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/oplik0/nodebb-plugin-restric-usernames/issues"
+    "url": "https://github.com/oplik0/nodebb-plugin-restrict-usernames/issues"
   },
   "readmeFilename": "README.md",
   "nbbpm": {

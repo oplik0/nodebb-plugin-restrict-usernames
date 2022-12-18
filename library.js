@@ -1,8 +1,5 @@
 'use strict';
 
-const nconf = require.main.require('nconf');
-const winston = require.main.require('winston');
-
 const meta = require.main.require('./src/meta');
 
 const routeHelpers = require.main.require('./src/routes/helpers');
@@ -13,14 +10,14 @@ plugin.init = async (params) => {
 	const { router /* , middleware , controllers */ } = params;
 
 	// Settings saved in the plugin settings can be retrieved via settings methods
-	plugin.settings = await meta.settings.get('restric-usernames');
+	plugin.settings = await meta.settings.get('restrict-usernames');
 	if (!plugin.settings.init) {
 		plugin.settings.init = true;
 		plugin.settings.enabled = [];
-		await meta.settings.set('restric-usernames', plugin.settings);
+		await meta.settings.set('restrict-usernames', plugin.settings);
 	}
-	routeHelpers.setupAdminPageRoute(router, '/admin/plugins/restric-usernames', [], (req, res) => {
-		res.render('admin/plugins/restric-usernames', { userFilters: plugin.userFilters });
+	routeHelpers.setupAdminPageRoute(router, '/admin/plugins/restrict-usernames', [], (req, res) => {
+		res.render('admin/plugins/restrict-usernames', { userFilters: plugin.userFilters });
 	});
 };
 
@@ -70,9 +67,9 @@ plugin.checkRegistration = async (hookData) => {
 
 plugin.addAdminNavigation = (header) => {
 	header.plugins.push({
-		route: '/plugins/restric-usernames',
+		route: '/plugins/restrict-usernames',
 		icon: 'fa-tint',
-		name: 'restric-usernames',
+		name: 'restrict-usernames',
 	});
 
 	return header;

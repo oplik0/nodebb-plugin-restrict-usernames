@@ -1,6 +1,6 @@
 {
-	"id": "nodebb-plugin-restric-usernames",
-	"url": "https://github.com/NodeBB/nodebb-plugin-restric-usernames",
+	"id": "nodebb-plugin-restrict-usernames",
+	"url": "https://github.com/NodeBB/nodebb-plugin-restrict-usernames",
 	"library": "./library.js",
 	"hooks": [
 		{
@@ -23,9 +23,6 @@
 	"staticDirs": {
 		"static": "./static"
 	},
-	"scss": [
-		"static/scss/restric-usernames.scss"
-	],
 	"scripts": [
 		"static/lib/main.js"
 	],
@@ -33,8 +30,8 @@
 		"static/lib/acp-main.js"
 	],
 	"modules": {
-		"../client/restric-usernames.js": "./static/lib/restric-usernames.js",
-		"../admin/plugins/restric-usernames.js": "./static/lib/admin.js"
+		"../client/restrict-usernames.js": "./static/lib/restrict-usernames.js",
+		"../admin/plugins/restrict-usernames.js": "./static/lib/admin.js"
 	},
 	"templates": "static/templates"
 }

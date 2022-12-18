@@ -9,7 +9,7 @@
  *
  * {
  *     "test_plugins": [
- *         "nodebb-plugin-restric-usernames"
+ *         "nodebb-plugin-restrict-usernames"
  *     ]
  * }
  */
@@ -22,7 +22,7 @@ const assert = require('assert');
 
 const db = require.main.require('./test/mocks/databasemock');
 
-describe('nodebb-plugin-restric-usernames', () => {
+describe('nodebb-plugin-restrict-usernames', () => {
 	before(() => {
 		// Prepare for tests here
 	});
