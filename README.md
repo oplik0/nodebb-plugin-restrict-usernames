@@ -1,17 +1,18 @@
 # Username Restriction Plugin for NodeBB
 
-A starter kit for quickly creating NodeBB plugins. Comes with a pre-setup LESS file, server side JS script with an `action:app.load` hook, and a client-side script. Most plugins need at least one of the above, so this ought to save you some time. For a full list of hooks have a look at our [wiki page](https://github.com/NodeBB/NodeBB/wiki/Hooks), and for more information about creating plugins please visit our [documentation portal](https://docs.nodebb.org/).
-
-Fork this or copy it, and using your favourite text editor find and replace all instances of `nodebb-plugin-restrict-usernames` with `nodebb-plugin-your-plugins-name`. Change the author's name in the LICENSE and package.json files.
-
-## Hello World
-
-Really simple, just edit `static/lib/main.js` and paste in `console.log('hello world');`, and that's it!
+Set rules for what usernames are allowed on your forum
 
 ## Installation
 
-    npm install nodebb-plugin-restrict-usernames
+Install via ACP or by running either
+(NodeBB>2.7.0)
+```bash
+./nodebb install nodebb-plugin-restrict-usernames
+```
+or (all supported NodeBB version)
+```bash
+npm install nodebb-plugin-restrict-usernames
+```
 
-## Screenshots
-
-Don't forget to add screenshots!
+## screenshot
+![ACP screenshot](./restrict-usernames-screenshot.png)

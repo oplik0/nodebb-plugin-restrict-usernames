@@ -1,7 +1,7 @@
 {
   "name": "nodebb-plugin-restrict-usernames",
-  "version": "0.5.0",
-  "description": "A starter kit for quickly creating NodeBB plugins",
+  "version": "0.5.1",
+  "description": "Set rules for what usernames are allowed on your forum",
   "main": "library.js",
   "repository": {
     "type": "git",
@@ -11,7 +11,7 @@
     "nodebb",
     "plugin",
     "restrict-usernames",
-    "shell"
+    "moderation"
   ],
   "husky": {
     "hooks": {
