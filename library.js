@@ -13,10 +13,9 @@ let bigram;
 plugin.id = 'restrict-usernames';
 plugin.settings = {};
 plugin.init = async (params) => {
-	const { router /* , middleware , controllers */ } = params;
+	const { router } = params;
 	({ diceCoefficient } = await import('dice-coefficient'));
 	({ bigram } = await import('n-gram'));
-	// Settings saved in the plugin settings can be retrieved via settings methods
 	plugin.settings = await meta.settings.get(plugin.id);
 	if (!plugin.settings.init) {
 		plugin.settings.init = true;
@@ -34,8 +33,8 @@ plugin.init = async (params) => {
 plugin.userFilters = {
 	duplicate: {
 		type: 'boolean',
-		name: "Don't allow duplicate usernames",
-		description: 'If enabled, registering with a taken username (different case or special characters, but same slug) will throw an error instead of adding a number',
+		name: '[[restrict-usernames:filter.duplicate.name]]',
+		description: '[[restrict-usernames:filter.duplicate.description]]',
 		function: async (username) => {
 			const exists = await meta.userOrGroupExists(username);
 			if (exists) {
@@ -45,8 +44,8 @@ plugin.userFilters = {
 	},
 	onlyAlphabetic: {
 		type: 'boolean',
-		name: "Don't allow usernames without any letters",
-		description: 'If enabled, registering with a username that contains no letters (eg. just numbers) will be rejected. Note that this is using Unicode Alphabetic property, so it may allow more characters than you expect.',
+		name: '[[restrict-usernames:filter.onlyAlphabetic.name]]',
+		description: '[[restrict-usernames:filter.onlyAlphabetic.description]]',
 		function: (username) => {
 			if (!/\p{Alphabetic}/ui.test(username)) {
 				throw new Error('[[restrict-usernames:error.no-letters]]');
@@ -55,8 +54,8 @@ plugin.userFilters = {
 	},
 	onlyAlphaNumeric: {
 		type: 'boolean',
-		name: 'Only allow alphanumeric characters (+spaces) in usernames',
-		description: 'If enabled, registering with a username that contains non-alphanumeric characters (special characters, emojis, weird whitespace) will be rejected. Note that this uses Unicode definition of alphanumerc which may contain more symbols that you expect.',
+		name: '[[restrict-usernames:filter.onlyAlphaNumeric.name]]',
+		description: '[[restrict-usernames:filter.onlyAlphaNumeric.description]]',
 		function: (username) => {
 			if (!/^(\p{Alphabetic}|\p{Number}| )+$/ui.test(username)) {
 				throw new Error('[[restrict-usernames:error.special-characters]]');
@@ -65,11 +64,11 @@ plugin.userFilters = {
 	},
 	similarity: {
 		type: 'number',
-		name: 'Maximum similarity to existing usernames',
+		name: '[[restrict-usernames:filter.similarity.name]]',
 		min: 0,
 		max: 100,
 		placeholder: 85,
-		description: 'If enabled, registering with a username that is too similar to an existing username will be rejected. This is calculated using Sørensen-Dice coefficient of these two usernames. The value is the maximum similarity allowed, so 85 means that usernames with coeffient of 0.85 or more will be rejected. Warning: setting this too low will cause a lot of false positives.',
+		description: '[[restrict-usernames:filter.similarity.description]]',
 		function: async (username) => {
 			// just precompute the bigrams for the current username to avoid redoing the work
 			const usernameBigrams = bigram(username);
@@ -88,8 +87,8 @@ plugin.userFilters = {
 	},
 	regex: {
 		type: 'rules',
-		name: 'Custom blacklist (words or regex)',
-		description: 'If enabled, registering with a username that matches any of the rules will be rejected. Rules are matched using JavaScript regex, but for basic usage just inputting the word will match it as is. Just be weary of special characters like parentheses or periods, which need to be escaped by prepending them with \\.',
+		name: '[[restrict-usernames:filter.regex.name]]',
+		description: '[[restrict-usernames:filter.regex.description]]',
 		function: (username) => {
 			const rules = plugin.settings['regex-rules'];
 			if (!rules) {

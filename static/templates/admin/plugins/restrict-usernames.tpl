@@ -7,7 +7,7 @@
 				<h3>{rules.name}</h3>
 				<div class="form-check">
 					<input type="checkbox" class="form-check-input" id="{@key}-enabled" name="{@key}-enabled">
-					<label for="{@key}-enabled" class="form-check-label">enabled</label>
+					<label for="{@key}-enabled" class="form-check-label">[[restrict-usernames:enabled]]</label>
 				</div>
 				<label for="{@key}" class="form-label">{rules.description}</label>
 				{{{ if (rules.type=="number") }}}

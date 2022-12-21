@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-restrict-usernames",
-  "version": "0.4.3",
+  "version": "0.5.0",
   "description": "A starter kit for quickly creating NodeBB plugins",
   "main": "library.js",
   "repository": {
