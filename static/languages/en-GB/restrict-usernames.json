@@ -1,0 +1,10 @@
+{
+    "add-item": "Add Item",
+    "rules": "Rules",
+    "error.username-too-similar": "The username is too similar to existing user %1",
+    "error.invalid-username": "The username is invalid",
+    "error.username-taken": "The username is already taken",
+    "error.username-blacklisted": "The username contains a blacklisted word or pattern",
+    "error.special-characters": "The username can't contain special characters",
+    "error.no-letters": "The username must contain at least one letter"
+}

@@ -45,5 +45,7 @@
 		"../client/restrict-usernames.js": "./static/lib/restrict-usernames.js",
 		"../admin/plugins/restrict-usernames.js": "./static/lib/admin.js"
 	},
+	"languages": "static/languages",
+	"defaultLang": "en-GB",
 	"templates": "static/templates"
 }

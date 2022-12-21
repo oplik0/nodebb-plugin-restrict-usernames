@@ -1,6 +1,6 @@
 <form role="form" class="restrict-usernames-settings">
 	<div class="row mb-4">
-		<div class="col-sm-2 col-12 settings-header">Rules</div>
+		<div class="col-sm-2 col-12 settings-header">[[restrict-usernames:rules]]</div>
 		<div class="col-sm-10 col-12">
 			{{{ each rules }}}
 			<div class="rulebox">
@@ -16,9 +16,9 @@
 					</div>
 				{{{ end }}}
 				{{{ if (rules.type=="rules") }}}
-					<div class="mb-3 col-12" data-type="sorted-list" data-sorted-list="{@key-list}" data-item-template="admin/plugins/restrict-usernames/partials/rules/item" data-form-template="admin/plugins/restrict-usernames/partials/rules/form">
+					<div class="mb-3 col-12" data-type="sorted-list" data-sorted-list="{@key}-rules" data-item-template="admin/plugins/restrict-usernames/partials/rules/item" data-form-template="admin/plugins/restrict-usernames/partials/rules/form">
 						<ul data-type="list" class="list-group mb-2"></ul>
-						<button type="button" data-type="add" class="btn btn-info">Add Item</button>
+						<button type="button" data-type="add" class="btn btn-info">[[restrict-usernames:add-item]]</button>
 					</div>
 				{{{ end }}}
 			</div>

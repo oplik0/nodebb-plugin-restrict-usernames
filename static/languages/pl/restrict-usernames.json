@@ -1,0 +1,10 @@
+{
+    "add-item": "Dodaj zasady",
+    "rules": "Zasady",
+    "error.username-too-similar": "Nazwa użytkownika jest zbyt podobna do istniejącego użytkownika %1",
+    "error.invalid-username": "Nazwa użytkownika nieprawidłowa",
+    "error.username-taken": "Nazwa użytkownika jest zajęta",
+    "error.username-blacklisted": "Nazwa użytkownika zawiera słowo lub wzór z listy zabronionych",
+    "error.special-characters": "Nazwa użytkownika nie może zawierać znaków specjalnych",
+    "error.no-letters": "Nazwa użytkownika musi zawierać przy najmniej jedną literę"
+}
