@@ -74,13 +74,11 @@ plugin.userFilters = {
 			// just precompute the bigrams for the current username to avoid redoing the work
 			const usernameBigrams = bigram(username);
 			await batch.processSortedSet('username:uid', (checkedUsernames) => {
-				console.log(checkedUsernames);
 				if (!checkedUsernames.length) {
 					checkedUsernames = [checkedUsernames];
 				}
 				for (const checkedUsername of checkedUsernames) {
 					const similarity = diceCoefficient(usernameBigrams, checkedUsername);
-					console.log(`${username} to existing ${checkedUsername}: ${similarity}`);
 					if (similarity >= parseInt(plugin.settings['similarity-value'] ?? plugin.userFilters.similarity.placeholder, 10) / 100) {
 						throw new Error(`[[restrict-usernames:error.username-too-similar, ${checkedUsername}]]`);
 					}
