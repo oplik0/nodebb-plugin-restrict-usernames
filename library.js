@@ -94,8 +94,8 @@ plugin.userFilters = {
 			if (!rules) {
 				return;
 			}
-			for (const { rule } of rules) {
-				if (new RegExp(rule).test(username)) {
+			for (const { rule, insensitive } of rules) {
+				if (new RegExp(rule, insensitive === 'on' ? 'iu' : 'u').test(username)) {
 					throw new Error('[[restrict-usernames:error.username-blacklisted]]');
 				}
 			}
@@ -106,6 +106,7 @@ plugin.userFilters = {
 plugin.saveSettings = async (data) => {
 	if (data.plugin === plugin.id && !data.quiet && plugin.settings.init) {
 		plugin.settings = await meta.settings.get(plugin.id);
+		console.log(plugin.settings);
 	}
 	return data;
 };

@@ -2,6 +2,9 @@
     <div class="row">
         <div class="col-9 col-sm-9">
             {rule}
+            {{{ if (insensitive == "on") }}}
+                [[restrict-usernames:insensitive]]
+            {{{ endif }}}
         </div>
         <div class="col-3 col-sm-3 text-end pull-right">
             <button type="button" data-type="edit" class="btn btn-info">Edit</button>

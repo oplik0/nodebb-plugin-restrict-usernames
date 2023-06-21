@@ -35,14 +35,7 @@
 	"less": [
 		"static/less/restrict-usernames.less"
 	],
-	"scripts": [
-		"static/lib/main.js"
-	],
-	"acpScripts": [
-		"static/lib/acp-main.js"
-	],
 	"modules": {
-		"../client/restrict-usernames.js": "./static/lib/restrict-usernames.js",
 		"../admin/plugins/restrict-usernames.js": "./static/lib/admin.js"
 	},
 	"languages": "static/languages",
