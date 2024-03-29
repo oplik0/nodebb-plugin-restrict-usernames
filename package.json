@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "dice-coefficient": "^2.1.1",
+    "metaphone3": "^1.0.1",
     "n-gram": "^2.0.2"
   }
 }

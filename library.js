@@ -1,5 +1,6 @@
 'use strict';
 
+const { metaphone3 } = require('metaphone3');
 
 const meta = require.main.require('./src/meta');
 const batch = require.main.require('./src/batch');
@@ -94,6 +95,37 @@ plugin.userFilters = {
 						const similarity = diceCoefficient(usernameBigrams, checkedUsername);
 						if (similarity >= parseInt(plugin.settings['similarity-value'] ?? plugin.userFilters.similarity.placeholder, 10) / 100) {
 							throw new Error(`[[restrict-usernames:error.username-too-similar, ${checkedUsername}]]`);
+						}
+					}
+				},
+				{}
+			));
+			await Promise.all(batchPromises);
+		},
+	},
+	phonetic: {
+		type: 'boolean',
+		name: '[[restrict-usernames:filter.phonetic.name]]',
+		description: '[[restrict-usernames:filter.phonetic.description]]',
+		function: async (username) => {
+			const phonetic = new Set(metaphone3(username));
+			const checkedGroups = JSON.parse(plugin.settings.groupsChecked);
+			const checkedSets = checkedGroups.filter(group => group.length).map(group => `group:${group}:members`);
+			if (checkedSets.length === 0) {
+				checkedSets.push('username:uid');
+			}
+			const batchPromises = checkedSets.map(checkedSet => batch.processSortedSet(
+				checkedSet,
+				async (checkedUsernames) => {
+					if (checkedSet !== 'username:uid') {
+						checkedUsernames = await user.getUsernamesByUids(checkedUsernames);
+					}
+					if (!checkedUsernames.length) {
+						checkedUsernames = [checkedUsernames];
+					}
+					for (const checkedUsername of checkedUsernames) {
+						if (metaphone3(checkedUsername).filter(p => p && phonetic.has(p)).length) {
+							throw new Error(`[[restrict-usernames:error.username-too-similar-phonetic, ${checkedUsername}]]`);
 						}
 					}
 				},
