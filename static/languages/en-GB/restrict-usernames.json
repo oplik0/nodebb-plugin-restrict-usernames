@@ -1,6 +1,5 @@
 {
     "add-item": "Add Item",
-    "rules": "Rules",
     "enabled": "Enabled",
     "error.username-too-similar": "The username is too similar to existing user %1",
     "error.invalid-username": "The username is invalid",
@@ -18,5 +17,8 @@
     "filter.similarity.description": "If enabled, registering with a username that is too similar to an existing username will be rejected. This is calculated using Sørensen-Dice coefficient of these two usernames. The value is the maximum similarity allowed, so 85 means that usernames with coeffient of 0.85 or more will be rejected. Warning: setting this too low will cause a lot of false positives.",
     "filter.regex.name": "Custom blacklist (words or regex)",
     "filter.regex.description": "If enabled, registering with a username that matches any of the rules will be rejected. Rules are matched using JavaScript regex, but for basic usage just inputting the word will match it as is. Just be weary of special characters like parentheses or periods, which need to be escaped by prepending them with \\",
-    "insensitive": "(case insensitive)"
+    "groups-checked": "Checked Groups",
+    "groups-checked-description": "If any groups is selected here, similarity checks will only compare new usernames to their members",
+    "insensitive": "(case insensitive)",
+    "rules": "Rules"
 }

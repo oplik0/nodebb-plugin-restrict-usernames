@@ -24,6 +24,15 @@
 			</div>
 			<hr>
 			{{{ end }}}
+			<div class="mb-3">
+				<h3>[[restrict-usernames:groups-checked]]</h3>
+				<label class="form-label" for="groupsChecked">[[restrict-usernames:groups-checked-description]]</label>
+				<select id="groupsChecked" class="form-select" multiple name="groupsChecked" data-type="select">
+					{{{ each groupsChecked }}}
+					<option value="{groupsChecked.name}">{groupsChecked.name}</option>
+					{{{ end }}}
+				</select>
+			</div>
 		</div>
 	</div>
 </form>

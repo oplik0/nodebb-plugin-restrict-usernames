@@ -3,6 +3,8 @@
 
 const meta = require.main.require('./src/meta');
 const batch = require.main.require('./src/batch');
+const groups = require.main.require('./src/groups');
+const user = require.main.require('./src/user');
 
 const routeHelpers = require.main.require('./src/routes/helpers');
 
@@ -23,12 +25,14 @@ plugin.init = async (params) => {
 			plugin.settings[`${filter}-enabled`] = false;
 		}
 		plugin.settings['similarity-value'] = 85;
+		plugin.settingsgroupsChecked = '[""]';
 		await meta.settings.set(plugin.id, plugin.settings, true);
 	}
-	routeHelpers.setupAdminPageRoute(router, '/admin/plugins/restrict-usernames', [], (req, res) => {
-		res.render('admin/plugins/restrict-usernames', { rules: plugin.userFilters });
+	routeHelpers.setupAdminPageRoute(router, '/admin/plugins/restrict-usernames', [], async (req, res) => {
+		res.render('admin/plugins/restrict-usernames', { rules: plugin.userFilters, groupsChecked: [{ name: '' }, ...(await groups.getGroupsBySort('count', 0, -1)).filter(group => group?.name)] });
 	});
 };
+
 
 plugin.userFilters = {
 	duplicate: {
@@ -72,17 +76,30 @@ plugin.userFilters = {
 		function: async (username) => {
 			// just precompute the bigrams for the current username to avoid redoing the work
 			const usernameBigrams = bigram(username);
-			await batch.processSortedSet('username:uid', (checkedUsernames) => {
-				if (!checkedUsernames.length) {
-					checkedUsernames = [checkedUsernames];
-				}
-				for (const checkedUsername of checkedUsernames) {
-					const similarity = diceCoefficient(usernameBigrams, checkedUsername);
-					if (similarity >= parseInt(plugin.settings['similarity-value'] ?? plugin.userFilters.similarity.placeholder, 10) / 100) {
-						throw new Error(`[[restrict-usernames:error.username-too-similar, ${checkedUsername}]]`);
+			const checkedGroups = JSON.parse(plugin.settings.groupsChecked);
+			const checkedSets = checkedGroups.filter(group => group.length).map(group => `group:${group}:members`);
+			if (checkedSets.length === 0) {
+				checkedSets.push('username:uid');
+			}
+			const batchPromises = checkedSets.map(checkedSet => batch.processSortedSet(
+				checkedSet,
+				async (checkedUsernames) => {
+					if (checkedSet !== 'username:uid') {
+						checkedUsernames = await user.getUsernamesByUids(checkedUsernames);
 					}
-				}
-			}, {});
+					if (!checkedUsernames.length) {
+						checkedUsernames = [checkedUsernames];
+					}
+					for (const checkedUsername of checkedUsernames) {
+						const similarity = diceCoefficient(usernameBigrams, checkedUsername);
+						if (similarity >= parseInt(plugin.settings['similarity-value'] ?? plugin.userFilters.similarity.placeholder, 10) / 100) {
+							throw new Error(`[[restrict-usernames:error.username-too-similar, ${checkedUsername}]]`);
+						}
+					}
+				},
+				{}
+			));
+			await Promise.all(batchPromises);
 		},
 	},
 	regex: {
@@ -106,7 +123,6 @@ plugin.userFilters = {
 plugin.saveSettings = async (data) => {
 	if (data.plugin === plugin.id && !data.quiet && plugin.settings.init) {
 		plugin.settings = await meta.settings.get(plugin.id);
-		console.log(plugin.settings);
 	}
 	return data;
 };
@@ -124,8 +140,8 @@ plugin.checkRegistration = async (hookData) => {
 plugin.addAdminNavigation = (header) => {
 	header.plugins.push({
 		route: '/plugins/restrict-usernames',
-		icon: 'fa-tint',
-		name: 'restrict-usernames',
+		icon: 'fa-user-lock',
+		name: 'Restrict Usernames',
 	});
 
 	return header;

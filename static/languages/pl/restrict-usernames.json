@@ -7,5 +7,7 @@
     "error.username-blacklisted": "Nazwa użytkownika zawiera słowo lub wzór z listy zabronionych",
     "error.special-characters": "Nazwa użytkownika nie może zawierać znaków specjalnych",
     "error.no-letters": "Nazwa użytkownika musi zawierać przy najmniej jedną literę",
-    "insensitive": "(ignoruje wielkość liter)"
+    "insensitive": "(ignoruje wielkość liter)",
+    "groups-checked": "Sprawdzane grupy",
+    "groups-checked-description": "Jeśli przynajmniej jedna z tych grup jest zaznaczona, zasady podobności będą stosowane tylko do nich"
 }
