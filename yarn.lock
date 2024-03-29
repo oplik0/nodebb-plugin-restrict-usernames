@@ -30,33 +30,33 @@
     js-tokens "^4.0.0"
     picocolors "^1.0.0"
 
-"@commitlint/cli@17.2.0":
-  version "17.2.0"
-  resolved "https://registry.yarnpkg.com/@commitlint/cli/-/cli-17.2.0.tgz#75cb39181cea98ccc3c9ec122c367af4252d0b5a"
-  integrity sha512-kd1zykcrjIKyDRftWW1E1TJqkgzeosEkv1BiYPCdzkb/g/3BrfgwZUHR1vg+HO3qKUb/0dN+jNXArhGGAHpmaQ==
+"@commitlint/cli@17.8.1":
+  version "17.8.1"
+  resolved "https://registry.yarnpkg.com/@commitlint/cli/-/cli-17.8.1.tgz#10492114a022c91dcfb1d84dac773abb3db76d33"
+  integrity sha512-ay+WbzQesE0Rv4EQKfNbSMiJJ12KdKTDzIt0tcK4k11FdsWmtwP0Kp1NWMOUswfIWo6Eb7p7Ln721Nx9FLNBjg==
   dependencies:
-    "@commitlint/format" "^17.0.0"
-    "@commitlint/lint" "^17.2.0"
-    "@commitlint/load" "^17.2.0"
-    "@commitlint/read" "^17.2.0"
-    "@commitlint/types" "^17.0.0"
+    "@commitlint/format" "^17.8.1"
+    "@commitlint/lint" "^17.8.1"
+    "@commitlint/load" "^17.8.1"
+    "@commitlint/read" "^17.8.1"
+    "@commitlint/types" "^17.8.1"
     execa "^5.0.0"
-    lodash "^4.17.19"
+    lodash.isfunction "^3.0.9"
     resolve-from "5.0.0"
     resolve-global "1.0.0"
     yargs "^17.0.0"
 
-"@commitlint/config-angular-type-enum@^17.0.0":
+"@commitlint/config-angular-type-enum@^17.8.1":
   version "17.8.1"
   resolved "https://registry.yarnpkg.com/@commitlint/config-angular-type-enum/-/config-angular-type-enum-17.8.1.tgz#73064b2a3fb35cf41d288ceb171878130295b800"
   integrity sha512-vuIQ9rZckMPRM6I3mWzfWb7TfvE/yHJXNKaR2weuhf+lQEVSZSGQP3LwdXpMcT2QGKE9VAhU/jw0qIE0Z9EbHA==
 
-"@commitlint/config-angular@17.2.0":
-  version "17.2.0"
-  resolved "https://registry.yarnpkg.com/@commitlint/config-angular/-/config-angular-17.2.0.tgz#f861f4ddd4194d918b1edf26a8a17260e8d5594c"
-  integrity sha512-IlS1DYlLpl2M8d7HY7VLCFv30lYrGG0Rxkbw9ZwwL++cNbJZqxu+QW7goxD197+WUsyrQdY9Zdrj4U/RZJQTDQ==
+"@commitlint/config-angular@17.8.1":
+  version "17.8.1"
+  resolved "https://registry.yarnpkg.com/@commitlint/config-angular/-/config-angular-17.8.1.tgz#ed2b066e84536af70e50a59e1c78e50d12808320"
+  integrity sha512-M3gfC2YttKOEDHrtOtCHfoIdF74vUc+ffJHTyU6j+xqlXrc34iOS665r1rRaTgX6CEeUAnNdpWn0zKYZTj27lA==
   dependencies:
-    "@commitlint/config-angular-type-enum" "^17.0.0"
+    "@commitlint/config-angular-type-enum" "^17.8.1"
 
 "@commitlint/config-validator@^17.8.1":
   version "17.8.1"
@@ -83,7 +83,7 @@
   resolved "https://registry.yarnpkg.com/@commitlint/execute-rule/-/execute-rule-17.8.1.tgz#504ed69eb61044eeb84fdfd10cc18f0dab14f34c"
   integrity sha512-JHVupQeSdNI6xzA9SqMF+p/JjrHTcrJdI02PwesQIDCIGUrv04hicJgCcws5nzaoZbROapPs0s6zeVHoxpMwFQ==
 
-"@commitlint/format@^17.0.0":
+"@commitlint/format@^17.8.1":
   version "17.8.1"
   resolved "https://registry.yarnpkg.com/@commitlint/format/-/format-17.8.1.tgz#6108bb6b4408e711006680649927e1b559bdc5f8"
   integrity sha512-f3oMTyZ84M9ht7fb93wbCKmWxO5/kKSbwuYvS867duVomoOsgrgljkGGIztmT/srZnaiGbaK8+Wf8Ik2tSr5eg==
@@ -99,7 +99,7 @@
     "@commitlint/types" "^17.8.1"
     semver "7.5.4"
 
-"@commitlint/lint@^17.2.0":
+"@commitlint/lint@^17.8.1":
   version "17.8.1"
   resolved "https://registry.yarnpkg.com/@commitlint/lint/-/lint-17.8.1.tgz#bfc21215f6b18d41d4d43e2aa3cb79a5d7726cd8"
   integrity sha512-aQUlwIR1/VMv2D4GXSk7PfL5hIaFSfy6hSHV94O8Y27T5q+DlDEgd/cZ4KmVI+MWKzFfCTiTuWqjfRSfdRllCA==
@@ -109,7 +109,7 @@
     "@commitlint/rules" "^17.8.1"
     "@commitlint/types" "^17.8.1"
 
-"@commitlint/load@^17.2.0":
+"@commitlint/load@^17.8.1":
   version "17.8.1"
   resolved "https://registry.yarnpkg.com/@commitlint/load/-/load-17.8.1.tgz#fa061e7bfa53281eb03ca8517ca26d66a189030c"
   integrity sha512-iF4CL7KDFstP1kpVUkT8K2Wl17h2yx9VaR1ztTc8vzByWWcbO/WaKwxsnCOqow9tVAlzPfo1ywk9m2oJ9ucMqA==
@@ -143,7 +143,7 @@
     conventional-changelog-angular "^6.0.0"
     conventional-commits-parser "^4.0.0"
 
-"@commitlint/read@^17.2.0":
+"@commitlint/read@^17.8.1":
   version "17.8.1"
   resolved "https://registry.yarnpkg.com/@commitlint/read/-/read-17.8.1.tgz#b3f28777607c756078356cc133368b0e8c08092f"
   integrity sha512-Fd55Oaz9irzBESPCdMd8vWWgxsW3OWR99wOntBDHgf9h7Y6OOHjWEdS9Xzen1GFndqgyoaFplQS5y7KZe0kO2w==
@@ -189,7 +189,7 @@
   dependencies:
     find-up "^5.0.0"
 
-"@commitlint/types@^17.0.0", "@commitlint/types@^17.8.1":
+"@commitlint/types@^17.8.1":
   version "17.8.1"
   resolved "https://registry.yarnpkg.com/@commitlint/types/-/types-17.8.1.tgz#883a0ad35c5206d5fef7bc6ce1bbe648118af44e"
   integrity sha512-PXDQXkAmiMEG162Bqdh9ChML/GJZo6vU+7F03ALKDK8zYc6SuAr47LjG7hGYRqUOz+WK0dU7bQ0xzuqFMdxzeQ==
@@ -1782,6 +1782,11 @@ lodash.camelcase@^4.3.0:
   resolved "https://registry.yarnpkg.com/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
   integrity sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==
 
+lodash.isfunction@^3.0.9:
+  version "3.0.9"
+  resolved "https://registry.yarnpkg.com/lodash.isfunction/-/lodash.isfunction-3.0.9.tgz#06de25df4db327ac931981d1bdb067e5af68d051"
+  integrity sha512-AirXNj15uRIMMPihnkInB4i3NHeb4iBtNg9WRWuK2o31S+ePwwNmDPaTL3o7dTJ+VXNZim7rFs4rxN4YU1oUJw==
+
 lodash.isplainobject@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
@@ -1822,7 +1827,7 @@ lodash.upperfirst@^4.3.1:
   resolved "https://registry.yarnpkg.com/lodash.upperfirst/-/lodash.upperfirst-4.3.1.tgz#1365edf431480481ef0d1c68957a5ed99d49f7ce"
   integrity sha512-sReKOYJIJf74dhJONhU4e0/shzi1trVbSWDOhKYE5XV2O+H7Sb2Dihwuc7xWxVl+DgFPyTqIN3zMfT9cq5iWDg==
 
-lodash@^4.17.15, lodash@^4.17.19:
+lodash@^4.17.15:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
