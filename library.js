@@ -76,7 +76,7 @@ plugin.userFilters = {
 		description: '[[restrict-usernames:filter.similarity.description]]',
 		function: async (username) => {
 			// just precompute the bigrams for the current username to avoid redoing the work
-			const usernameBigrams = bigram(username);
+			const usernameBigrams = bigram(username.normalize('NFD'));
 			const checkedGroups = JSON.parse(plugin.settings.groupsChecked);
 			const checkedSets = checkedGroups.filter(group => group.length).map(group => `group:${group}:members`);
 			if (checkedSets.length === 0) {
@@ -92,7 +92,7 @@ plugin.userFilters = {
 						checkedUsernames = [checkedUsernames];
 					}
 					for (const checkedUsername of checkedUsernames) {
-						const similarity = diceCoefficient(usernameBigrams, checkedUsername);
+						const similarity = diceCoefficient(usernameBigrams, checkedUsername.normalize('NFD'));
 						if (similarity >= parseInt(plugin.settings['similarity-value'] ?? plugin.userFilters.similarity.placeholder, 10) / 100) {
 							throw new Error(`[[restrict-usernames:error.username-too-similar, ${checkedUsername}]]`);
 						}
