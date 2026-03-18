@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.1](https://github.com/oplik0/nodebb-plugin-restrict-usernames/compare/v0.8.0...v0.8.1) (2026-03-18)
+
+
+### Bug Fixes
+
+* oidc ([1a7b17c](https://github.com/oplik0/nodebb-plugin-restrict-usernames/commit/1a7b17c500a50de1704610591719383f9d363e1c))
+
 ## [0.8.0](https://github.com/oplik0/nodebb-plugin-restrict-usernames/compare/v0.7.0...v0.8.0) (2026-03-18)
 
 
