@@ -9,7 +9,7 @@ const user = require.main.require('./src/user');
 
 const routeHelpers = require.main.require('./src/routes/helpers');
 
-const plugin = {};
+const plugin = module.exports;
 
 let diceCoefficient;
 let bigram;
@@ -30,7 +30,15 @@ plugin.init = async (params) => {
 		await meta.settings.set(plugin.id, plugin.settings, true);
 	}
 	routeHelpers.setupAdminPageRoute(router, '/admin/plugins/restrict-usernames', [], async (req, res) => {
-		res.render('admin/plugins/restrict-usernames', { rules: plugin.userFilters, groupsChecked: [{ name: '' }, ...(await groups.getGroupsBySort('count', 0, -1)).filter(group => group?.name)] });
+		const groupsData = (await groups.getGroupsBySort('count', 0, -1)).filter(group => group?.name);
+		res.render('admin/plugins/restrict-usernames', {
+			title: '[[restrict-usernames:title]]',
+			rules: plugin.userFilters,
+			groupsChecked: [
+				{ name: '' },
+				...groupsData,
+			],
+		});
 	});
 };
 
@@ -173,10 +181,8 @@ plugin.addAdminNavigation = (header) => {
 	header.plugins.push({
 		route: '/plugins/restrict-usernames',
 		icon: 'fa-user-lock',
-		name: 'Restrict Usernames',
+		name: '[[restrict-usernames:title]]',
 	});
 
 	return header;
 };
-
-module.exports = plugin;

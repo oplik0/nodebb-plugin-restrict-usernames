@@ -29,12 +29,6 @@
 		}
 	],
 	"settingsRoute": "/admin/plugins/restrict-usernames",
-	"staticDirs": {
-		"static": "./static"
-	},
-	"less": [
-		"static/less/restrict-usernames.less"
-	],
 	"modules": {
 		"../admin/plugins/restrict-usernames.js": "./static/lib/admin.js"
 	},

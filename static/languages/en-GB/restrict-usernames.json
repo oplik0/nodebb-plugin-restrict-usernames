@@ -1,4 +1,5 @@
 {
+    "title": "Restrict Usernames",
     "add-item": "Add Item",
     "enabled": "Enabled",
     "error.username-too-similar": "The username is too similar to existing user %1",

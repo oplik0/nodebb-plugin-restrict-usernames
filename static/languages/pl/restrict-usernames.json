@@ -1,4 +1,5 @@
 {
+    "title": "Ogranicz nazwy użytkowników",
     "add-item": "Dodaj zasady",
     "rules": "Zasady",
     "error.username-too-similar": "Nazwa użytkownika jest zbyt podobna do istniejącego użytkownika %1",
