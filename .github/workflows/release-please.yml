@@ -6,6 +6,7 @@ name: release-please
 permissions:
   contents: write
   pull-requests: write
+  id-token: write
 jobs:
   release-please:
     runs-on: ubuntu-latest
@@ -15,11 +16,11 @@ jobs:
       with:
         release-type: node
     # The logic below handles the npm publication:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     # these if statements ensure that a publication only occurs when
     # a new release is created:
       if: ${{ steps.release.outputs.release_created }}
-    - uses: actions/setup-node@v4
+    - uses: actions/setup-node@v6
       with:
         node-version: 24
         cache: yarn
@@ -28,6 +29,4 @@ jobs:
     - run: yarn
       if: ${{ steps.release.outputs.release_created }}
     - run: yarn publish
-      env:
-        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       if: ${{ steps.release.outputs.release_created }}
