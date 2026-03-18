@@ -10,7 +10,7 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-    - uses: google-github-actions/release-please-action@v4
+    - uses: googleapis/release-please-action@v4
       id: release
       with:
         release-type: node
@@ -21,7 +21,7 @@ jobs:
       if: ${{ steps.release.outputs.release_created }}
     - uses: actions/setup-node@v4
       with:
-        node-version: 18
+        node-version: 24
         cache: yarn
         registry-url: 'https://registry.npmjs.org'
       if: ${{ steps.release.outputs.release_created }}
