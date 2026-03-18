@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.2](https://github.com/oplik0/nodebb-plugin-restrict-usernames/compare/v0.8.1...v0.8.2) (2026-03-18)
+
+
+### Bug Fixes
+
+* move to npm ([9227ba7](https://github.com/oplik0/nodebb-plugin-restrict-usernames/commit/9227ba7fb12a428c24255d1450e34746eda8af91))
+
 ## [0.8.1](https://github.com/oplik0/nodebb-plugin-restrict-usernames/compare/v0.8.0...v0.8.1) (2026-03-18)
 
 
