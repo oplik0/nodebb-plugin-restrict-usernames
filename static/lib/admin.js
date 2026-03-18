@@ -8,7 +8,7 @@
 define('admin/plugins/restrict-usernames', [
 	'settings',
 ], function (settings) {
-	var ACP = {};
+	const ACP = {};
 
 	ACP.init = function () {
 		settings.load('restrict-usernames', $('.restrict-usernames-settings'));
