@@ -8,10 +8,6 @@
 			"method": "init"
 		},
 		{
-			"hook": "static:api.routes",
-			"method": "addRoutes"
-		},
-		{
 			"hook": "filter:admin.header.build",
 			"method": "addAdminNavigation"
 		},
@@ -29,12 +25,6 @@
 		}
 	],
 	"settingsRoute": "/admin/plugins/restrict-usernames",
-	"staticDirs": {
-		"static": "./static"
-	},
-	"less": [
-		"static/less/restrict-usernames.less"
-	],
 	"modules": {
 		"../admin/plugins/restrict-usernames.js": "./static/lib/admin.js"
 	},
