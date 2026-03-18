@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/oplik0/nodebb-plugin-restrict-usernames/compare/v0.7.0...v0.8.0) (2026-03-18)
+
+
+### Features
+
+* update for 3.2.x and 4.x ([#39](https://github.com/oplik0/nodebb-plugin-restrict-usernames/issues/39)) ([5fa4a2b](https://github.com/oplik0/nodebb-plugin-restrict-usernames/commit/5fa4a2bee2a9b0a4ceb5852f2c410e4506195fe1))
+
 ## [0.7.0](https://github.com/oplik0/nodebb-plugin-restrict-usernames/compare/v0.6.0...v0.7.0) (2024-03-29)
 
 
