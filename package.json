@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-restrict-usernames",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Set rules for what usernames are allowed on your forum",
   "main": "library.js",
   "repository": {
