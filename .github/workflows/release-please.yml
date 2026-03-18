@@ -23,10 +23,9 @@ jobs:
     - uses: actions/setup-node@v6
       with:
         node-version: 24
-        cache: yarn
         registry-url: 'https://registry.npmjs.org'
       if: ${{ steps.release.outputs.release_created }}
-    - run: yarn
+    - run: npm install
       if: ${{ steps.release.outputs.release_created }}
-    - run: yarn publish
+    - run: npm publish
       if: ${{ steps.release.outputs.release_created }}
